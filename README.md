@@ -16,7 +16,7 @@ Seu trabalho é projetar uma solução para importar os dados de faturamento de 
 
 ## Diagramas
 Para descrever o uso do sistema foram criados Diagramas UML
-###  Casos de Usos [Gerenciar Fatura](GerenciarFaturas.ucase.violet.html) 
+###  Casos de Usos [Gerenciar Fatura](GerenciarFaturas.png) 
 - Instalar o PostgreSQL server
 - Adicionar um usuário (trduser) com super privilégios
 - Crie um banco de dados com estes parametros: 
