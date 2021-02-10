@@ -15,58 +15,18 @@ Seu trabalho é projetar uma solução para importar os dados de faturamento de 
 
 
 ## Diagramas
-Para descrever o uso do sistema foram criados Diagramas UML
+Para descrever o uso do sistema foram criados Diagramas UML (Clique no Link para visualizar)
+
 ###  Casos de Usos [Gerenciar Fatura](GerenciarFaturas.png) 
-- Instalar o PostgreSQL server
-- Adicionar um usuário (trduser) com super privilégios
-- Crie um banco de dados com estes parametros: 
-  - Database Name = "TRADE"
-  - Address = "localhost"
-  - Port = 5432
-  - User = "trduser"
-  - Password="testeeduzz"
+Descreve de forma geral como o usuário irá utilizar o Sistema
 
-PS: É possivel configurar estes parametros na aplicação.
-- Você encontra o arquivo de configuração dentro da pasta bin/Config
+###  Diagrama de Atividades [Cadastrar Layout](CadastrarLayout.png) 
+Um dos requisitos do sistema, é ser flexivel e poder receber novos Layouts. Este diagrama descreve os passos do usuário para incluir um novo Layout de arquivos para ser importado
 
-### Rodando no Linux
-- Instalar o .net SDK 3.1 para Linux https://dotnet.microsoft.com/download/dotnet-core/3.1
-- Instalar  o Visual Studio Code para Linux https://code.visualstudio.com/download
-- Instalar a extensão C# Extension para Visual Studio Code
-- Você pode rodar esta aplicação abrindo o projeto (Pasta) no Visual Studio Code
-e apertando F5(Run)
+###  Diagrama de Atividades [Importar Fatura](ImportarFatura.png) 
+Este diagrama descreve os passos do usuário para importar uma nova Fatura.
 
-## Frameworks e informação sobre o projeto
-### Sobre
-- Este projeto esta dividido em 3 modulos seguindo a arquitetura Domain Driven Desgin
-  - TesteBackendEduzz.Api contento os Endpoints e Controllers (camada exposta ao usuário)
-  - TesteBackendEduzz.Domain contento Modelos e regras para armazenar os Dados
-  - Eduzz.Infrastructure contento classes de ajuda no desenvolvimento e podem ser expostas a outros projetos
+## Sobre a Solução
+Esta proposta permite ao usuário incluir diversos layouts para os diversos tipos de arquivos propostos. Podendo para um mesmo tipo de arquivo ter vários Layouts para importação.
 
-- Operações de banco de dados são feitas por um Repositório (Repository Pattern)
-  - Não é necessário (mas é possivel) criar operações (CRUD operations) para cada entitade, essa funcionalidade é entregue através da herança de classes
-
-- Ações (interações do usuário), são validadas para cada Modelo usando Atributos de Validação (Diminui a quantidade de código necessária)
-  - Se um post for bem sucedido ele retorna o código 200 com informações do objeto
-  - Se um post é invalido por causa das informações ele retorn 422(Entidade não validada) com detalhes dos erros para cada propriedade
-  - Modelos são validados automaticamente para cada método decorado com o atributo [ValidateModel] e as mensagens de erro
-são especificadas para cada propriedade do modelo
-  - Cada resultado Json tem uma propriedade statusCode e uma propriedade result ou errors mostrando cada erro detalhadamente
-e uma propriedade message mostrando o erro de modo geral
-
-- Moeda Virtual
-  - Este projeto é sobre Moedas Virtuais, com a possibilidade de comprar e vender
-  - Eu tentei tratar o mais proximo possivel deste projeto como um Software de TRADE
-  - Eu criei uma Classe de Carteira que contém informação sobre o dinheiro do usuário
-    - O dinheiro pode ser Real(BR), Bitcoin ou até mesmo Dolar(Not used)
-  - Cada vez que um usuário compra ou vende uma Transação de Dinheiro é criada
-   contendo a informação sobre a carteira de destino (ou fonte) e a quantidade transferida
-
-
-### Frameworks
-- Este projeto usa o NHibernate como ORM e Mapping by Code para mapear as Entidades
-- Este projeto usa Sendgrid para envio de e-mails
- 
-### Postman teste
-Eu exportei os arquivos [collection](postman_collection.json) e [Environment](postman_environment.json)
-
+Os arquivos não serão armazenados na aplicação, serão descartados após processamento. Somente os dados importantes para emissão dos relatórios serão armazenados em um Banco de Dados
