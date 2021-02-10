@@ -1,7 +1,6 @@
 # UpperTools
 
 ## Sobre o projeto
-### Feito por Daniel Guimarães Scatigno
 ### Teste para Processo Seletivo, Uppertools descreve o seguinte Problema:
 Um cliente possui diversos tipos de contas que não são gerenciadas: água, energia, taxi, locação de veículos e hospedagem de funcionários. E comumente acarreta problemas como falta de visibilidade dos custos, uso irresponsável dos recursos, multas por atraso no pagamento e muito trabalho para gerar relatórios de rateio dos custos.
 
@@ -17,16 +16,19 @@ Seu trabalho é projetar uma solução para importar os dados de faturamento de 
 ## Diagramas
 Para descrever o uso do sistema foram criados Diagramas UML (Clique no Link para visualizar)
 
-###  Casos de Usos [Gerenciar Fatura](GerenciarFaturas.png) 
+
+####  Casos de Usos [Gerenciar Fatura](GerenciarFaturas.png) 
 Descreve de forma geral como o usuário irá utilizar o Sistema
 
-###  Diagrama de Atividades [Cadastrar Layout](CadastrarLayout.png) 
+####  Diagrama de Atividades [Cadastrar Layout](CadastrarLayout.png) 
 Um dos requisitos do sistema, é ser flexivel e poder receber novos Layouts. Este diagrama descreve os passos do usuário para incluir um novo Layout de arquivos para ser importado
 
-###  Diagrama de Atividades [Importar Fatura](ImportarFatura.png) 
+####  Diagrama de Atividades [Importar Fatura](ImportarFatura.png) 
 Este diagrama descreve os passos do usuário para importar uma nova Fatura.
 
 ## Sobre a Solução
 Esta proposta permite ao usuário incluir diversos layouts para os diversos tipos de arquivos propostos. Podendo para um mesmo tipo de arquivo ter vários Layouts para importação.
 
 Os arquivos não serão armazenados na aplicação, serão descartados após processamento. Somente os dados importantes para emissão dos relatórios serão armazenados em um Banco de Dados
+
+##### Realizado por Daniel Guimarães Scatigno
