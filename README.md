@@ -26,8 +26,9 @@ Um dos requisitos do sistema, é ser flexivel e poder receber novos Layouts. Est
 ![alt text](CadastrarLayout.png)
 
 ###  Diagrama de Atividades [Importar Fatura](ImportarFatura.png) 
-![alt text](ImportarFatura.png)
 Este diagrama descreve os passos do usuário para importar uma nova Fatura.
+![alt text](ImportarFatura.png)
+
 
 ## Sobre a Solução
 Esta proposta permite ao usuário incluir diversos layouts para os diversos tipos de arquivos propostos. Podendo para um mesmo tipo de arquivo ter vários Layouts para importação.
