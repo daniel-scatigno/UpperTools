@@ -29,6 +29,28 @@
       }
     },
     {
+      "name": "Launch and Debug",
+      "type": "blazorwasm",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/UpperTools.UI/",
+      "url": "http://localhost:5003"
+    },
+    {
+      "name": "Watch",
+      "type": "coreclr",
+      "request": "launch",      
+      //"justMyCode": true,
+      // If you have changed target frameworks, make sure to update the program path.
+      "program": "dotnet",
+      "args": ["watch","run"],
+      "cwd": "${workspaceFolder}/UpperTools.UI/",      
+      "env": {          
+      },
+      "logging": {
+        "engineLogging": false
+      }
+    },
+    {
       "name": ".NET Core Attach",
       "type": "coreclr",
       "request": "attach",

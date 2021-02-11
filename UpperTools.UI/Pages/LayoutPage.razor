@@ -1,0 +1,38 @@
+@using UpperTools.UI.Models;
+@using Radzen.Blazor;
+@page "/layout"
+
+<h1>Cadastro de Layout</h1>
+
+
+<EditForm Model="@layoutSupplier" OnValidSubmit="@HandleValidSubmit">
+   <div class="row">
+      <div class="col-xl-6">
+         <div class="form-group">
+            <label>Nome do Fornecedor</label>
+            <RadzenTextBox @bind-value="@layoutSupplier.Supplier" class="form-control" />
+         </div>
+      </div>
+      <div class="col-xl-6">
+         <div class="form-group">
+            <label>Tipo de Arquivo</label>
+            <RadzenDropDown Data="@fileTypes" @bind-Value="@layoutSupplier.UsedFileType" class="form-control" >
+               <Template Context="FileContext">
+                   @( ((FileType)FileContext).ToString())
+               </Template>
+            </RadzenDropDown>
+         </div>
+      </div>
+   </div>
+
+</EditForm>
+
+@code{
+   public LayoutSupplier layoutSupplier = new LayoutSupplier();
+   public IEnumerable<FileType> fileTypes = Enum.GetValues(typeof(FileType)).Cast<FileType>();
+   
+   private void HandleValidSubmit()
+   {
+
+   }
+}
