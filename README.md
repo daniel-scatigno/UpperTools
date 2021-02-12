@@ -41,6 +41,14 @@ para desenho da Interface de Usuário.
 
 O projeto deveria ter uma WebApplication para realizar as operações de armazenar os dados no banco de dados.
 
+Para rodar o Projeto é necessário ter .Net 5.0 instalado (SDK)
+E executar o comando na Pasta raiz do Projeto:
+
+ - dotnet run --project ./UpperTools.UI/UpperTools.UI.csproj 
+
+ Depois é só acessar o endereço http://localhost:5003 no Browser
+
+
 Consegui criar apenas uma das telas de acesso (Cadastrar Layout) neste tempo.
 
 ### Cadastro de Layout
