@@ -1,5 +1,8 @@
+@namespace UpperTools.UI.Pages
 @using UpperTools.UI.Models;
 @using Radzen.Blazor;
+@using Radzen;
+@using UpperTools.UI.Library;
 @page "/layout"
 
 <h1>Cadastro de Layout</h1>
@@ -16,23 +19,115 @@
       <div class="col-xl-6">
          <div class="form-group">
             <label>Tipo de Arquivo</label>
-            <RadzenDropDown Data="@fileTypes" @bind-Value="@layoutSupplier.UsedFileType" class="form-control" >
+            <RadzenDropDown Data="@fileTypes" @bind-Value="@layoutSupplier.UsedFileType" class="form-control">
                <Template Context="FileContext">
-                   @( ((FileType)FileContext).ToString())
+                  @( ((FileType)FileContext).ToString())
                </Template>
             </RadzenDropDown>
          </div>
       </div>
+      <div class="col-xl-6">
+         <div class="form-group">
+            <label>Arquivo de Exemplo</label>
+            <InputFile OnChange="@OnFileSelection" class="form-control-file"></InputFile>
+         </div>
+      </div>
+      @if (UploadedFileType != null)
+      {
+         <div class="col-xl-6">
+            <div class="form-group">
+               <label>Tipo do Arquivo</label>
+               <div class="font-weight-bold"> @UploadedFileType.ToString().ToUpper()</div>
+            </div>
+         </div>
+      }
    </div>
+   @if ((Fields != null) && (Fields.Count() > 0))
+   {
+      <div class="row mt-3">
+         <div class="col-xl-6 col-md-12">
+            <div class="card">
+               <div class="card-header">
+                  <h3>Campos Encontrados</h3>
+               </div>
+               <div class="card-body">
+                  <div class="row">
+                     @foreach (Field f in Fields)
+                     {
+                        <div class="col-xl-6 col-md-12 col-sm-12">
+                           <div class="form-group">
+                              <label>@f.FieldName</label>
+                              <RadzenDropDown Data="@informationTypes" class="form-control" TValue="int">
+                                 <Template Context="InformationContext">
+                                    @( ((InformationType)InformationContext).ToString())
+                                 </Template>
+                              </RadzenDropDown>
+                           </div>
+
+                        </div>
+                     }
+                  </div>
+               </div>
+
+
+            </div>
+         </div>
+         <div class="col-xl-6 col-md-12">
+            <div class="card">
+               <div class="card-header">
+                  <h3>Arquivo Json</h3>
+               </div>
+               <div class="card-body">
+                  <div style="white-space: pre;">@Json</div>
+               </div>
+            </div>
+         </div>
+      </div>
+   }
 
 </EditForm>
 
 @code{
-   public LayoutSupplier layoutSupplier = new LayoutSupplier();
-   public IEnumerable<FileType> fileTypes = Enum.GetValues(typeof(FileType)).Cast<FileType>();
-   
+   public LayoutSupplier layoutSupplier = new LayoutSupplier() { UsedFileType = FileType.json };
+   public IEnumerable<FileType> fileTypes =
+      Enum.GetValues(typeof(FileType)).Cast<FileType>().Where(x => x != FileType.Desconhecido);
+
+   public IEnumerable<InformationType> informationTypes =
+      Enum.GetValues(typeof(InformationType)).Cast<InformationType>();
+
+   public FileType? UploadedFileType { get; set; }
+
+   public List<Field> Fields { get; set; }
+
+   public string Json { get; set; }
+
    private void HandleValidSubmit()
    {
 
+   }
+
+   public void OnComplete(UploadCompleteEventArgs args)
+   {
+      Console.WriteLine($"Server response: {args.RawResponse}");
+   }
+   private async Task OnFileSelection(InputFileChangeEventArgs e)
+   {
+      IBrowserFile fileSent = e.File;
+      var buffers = new byte[fileSent.Size];
+      var stream = fileSent.OpenReadStream();
+      string fileType = fileSent.ContentType;
+      Console.WriteLine("FileType:" + fileType);
+      if (fileType == "application/json")
+      {
+         UploadedFileType = FileType.json;
+         Json = await FileLibrary.GetStringFromStream(stream);
+         Fields = FileLibrary.GetJsonFields(Json);
+         Console.WriteLine("FieldsCount:" + Fields.Count());
+      }
+      else if (fileType == "application/xls")
+         UploadedFileType = FileType.xls;
+      else
+         UploadedFileType = FileType.Desconhecido;
+      //var teste =$"data:{imageType};base64,{Convert.ToBase64String(buffers)}";
    }
 }

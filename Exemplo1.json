@@ -1,0 +1,14 @@
+{
+   "Fatura": [
+      {
+         "Produto": "Monitor 20\"",
+         "Valor": 310.50,
+         "Data": "21/02/2021"
+      },
+      {
+         "Produto": "Mouse M20\"",
+         "Valor": 31.50,
+         "Data": "21/02/2021"
+      }
+   ]
+}

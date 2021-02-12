@@ -1,0 +1,19 @@
+{
+   "Empresa": {
+      "CNPJ" : "47.846.067/0001-05",
+      "Nome" : "Samsung LTDA",
+      "Cobrancas": [
+         {
+            "Descricao": "Serviço de Impressão\"",
+            "Valor": 1310.50,
+            "DataPagamento": "21/03/2021"
+         },
+         {
+            "Descricao": "Máquina de Café\"",
+            "Valor": 3031.50,
+            "Data": "21/03/2021"
+         }
+      ]      
+   }
+   
+}
