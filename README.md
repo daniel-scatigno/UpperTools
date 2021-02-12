@@ -35,6 +35,8 @@ Esta proposta permite ao usuário incluir diversos layouts para os diversos tipo
 
 Os arquivos não serão armazenados na aplicação, serão descartados após processamento. Somente os dados importantes para emissão dos relatórios serão armazenados em um Banco de Dados, permitindo assim que a aplicação possa processar grandes arquivos.
 
+Esta proposta também considera que já existe um software para gerenciar as informações de fatura e exibir os relatórios necessários, sendo necessário somente a Importação de novas Faturas.
+
 ## Técnologia Escolhida
 Para este projeto eu escolhi o Framework Blazor no modo WebAssemly (.net Core 5) 
 para desenho da Interface de Usuário. 
