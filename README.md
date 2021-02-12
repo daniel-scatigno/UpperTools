@@ -35,5 +35,21 @@ Esta proposta permite ao usuário incluir diversos layouts para os diversos tipo
 
 Os arquivos não serão armazenados na aplicação, serão descartados após processamento. Somente os dados importantes para emissão dos relatórios serão armazenados em um Banco de Dados, permitindo assim que a aplicação possa processar grandes arquivos.
 
+## Técnologia Escolhida
+Para este projeto eu escolhi o Framework Blazor no modo WebAssemly (.net Core 5) 
+para desenho da Interface de Usuário. 
+
+O projeto deveria ter uma WebApplication para realizar as operações de armazenar os dados no banco de dados.
+
+Consegui criar apenas uma das telas de acesso (Cadastrar Layout) neste tempo.
+
+### Cadastro de Layout
+Nesta tela o usuário Informa o Nome do Fornecedor, o Tipo do Arquivo e carrega um Arquivo
+(Eu adicionei dois arquivos de Exemplo na pasta Exemplo1.json e Exemplo2.)
+Ao carregar o arquivo o sistema Lê a estrutura (somente Json) e mostra os campos disponíveis para o usuário Selecionar o Tipo de Dado existente.
+
+![alt text](TelaCadastrodeLayout.png)
+
+
 
 ##### Realizado por Daniel Guimarães Scatigno
