@@ -1,7 +1,7 @@
 # UpperTools
 
 ## Sobre o projeto
-### Teste para Processo Seletivo, Uppertools descreve o seguinte Problema:
+### Teste para Processo Seletivo, a UpperTools descreve o seguinte Problema:
 Um cliente possui diversos tipos de contas que não são gerenciadas: água, energia, taxi, locação de veículos e hospedagem de funcionários. E comumente acarreta problemas como falta de visibilidade dos custos, uso irresponsável dos recursos, multas por atraso no pagamento e muito trabalho para gerar relatórios de rateio dos custos.
 
 Uma dificuldade é que cada fornecedor envia suas faturas em um formato: XLS, CSV, XML, PDF e JSON. Os layouts dos arquivos também variam de fornecedor para fornecedor.
